@@ -14,8 +14,9 @@ struct OrderDetail: View {
 	@EnvironmentObject var order: Order
 	
 	var body: some View {
-		List {
-			Section {
+		NavigationView {
+			List {
+							Section {
 				ForEach(order.items.keys.sorted(by: >), id: \.self) { item in
 					HStack {
 						Image(item.thumbnailImage)
@@ -26,41 +27,33 @@ struct OrderDetail: View {
 						Text("$\((order.items[item] ?? 0) * item.price)")
 					}
 				}
-			}
-			
-			Section {
+							}
+				
+							Section {
 				HStack {
 					Text("Total: ")
 						.font(.headline)
 					Spacer()
 					Text("$\(order.total)")
 				}
-			}
-			
-			Section {
-				HStack {
-					Spacer()
-					Button {
-						NavigationLink("Place order") {
-							Text("Check out")
-						}
-					} label: {
-						Text("Buy")
-					}
+							}
+				
+				NavigationLink("Place Order", destination: PaymentView())
 					.padding(10)
-					.background(.blue)
+							.background(.blue)
 					.foregroundColor(.white)
 					.cornerRadius(5)
-					Spacer()
-				}
 				
-			}.navigationBarTitle(Text("Order"))
+			}
+			.navigationBarTitle(Text("Order"))
+			.navigationBarTitleDisplayMode(.inline)
 		}
+		
 	}
 }
 
 struct OrderDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        OrderDetail().environmentObject(Order(items: [example: 3]))
-    }
+	static var previews: some View {
+		OrderDetail().environmentObject(Order(items: [example: 3]))
+	}
 }
