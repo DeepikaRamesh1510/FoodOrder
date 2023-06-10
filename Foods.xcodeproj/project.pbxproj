@@ -18,6 +18,8 @@
 		6B25E8222A3246F600D2EC18 /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25E8212A3246F600D2EC18 /* ItemRow.swift */; };
 		6B25E8242A32474100D2EC18 /* OrderDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25E8232A32474100D2EC18 /* OrderDetail.swift */; };
 		6B25E8262A32477800D2EC18 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25E8252A32477800D2EC18 /* ItemDetailView.swift */; };
+		6B25E8282A32667800D2EC18 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25E8272A32667800D2EC18 /* MainTabView.swift */; };
+		6B25E82A2A32779E00D2EC18 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B25E8292A32779E00D2EC18 /* PaymentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		6B25E8212A3246F600D2EC18 /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
 		6B25E8232A32474100D2EC18 /* OrderDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetail.swift; sourceTree = "<group>"; };
 		6B25E8252A32477800D2EC18 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
+		6B25E8272A32667800D2EC18 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		6B25E8292A32779E00D2EC18 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +108,12 @@
 		6B25E81C2A315E1000D2EC18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6B25E8292A32779E00D2EC18 /* PaymentView.swift */,
 				6B25E8232A32474100D2EC18 /* OrderDetail.swift */,
 				6B25E8082A3155EB00D2EC18 /* ContentView.swift */,
 				6B25E8212A3246F600D2EC18 /* ItemRow.swift */,
 				6B25E8252A32477800D2EC18 /* ItemDetailView.swift */,
+				6B25E8272A32667800D2EC18 /* MainTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 			files = (
 				6B25E8242A32474100D2EC18 /* OrderDetail.swift in Sources */,
 				6B25E8092A3155EB00D2EC18 /* ContentView.swift in Sources */,
+				6B25E8282A32667800D2EC18 /* MainTabView.swift in Sources */,
+				6B25E82A2A32779E00D2EC18 /* PaymentView.swift in Sources */,
 				6B25E8192A31568400D2EC18 /* MenuItem.swift in Sources */,
 				6B25E8202A31A7F200D2EC18 /* Order.swift in Sources */,
 				6B25E8262A32477800D2EC18 /* ItemDetailView.swift in Sources */,
