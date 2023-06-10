@@ -16,7 +16,7 @@ struct FoodsApp: App {
 	
     var body: some Scene {
         WindowGroup {
-            ContentView()
+           MainTabView()
 				.environmentObject(order)
         }
     }
