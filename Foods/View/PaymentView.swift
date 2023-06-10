@@ -17,6 +17,7 @@ struct PaymentView: View {
 	@State var loyaltyNumber = ""
 	@State var cardNum = ""
 	@State var tipAmountType: TipAmountType = .ten
+	@State var shouldShowOrderConfirmation = false
 	
 	var totalPrice: String {
 		let value = Double(order.total) + Double(order.total) * (tipAmountType.value / 100)
@@ -59,12 +60,20 @@ struct PaymentView: View {
 			
 			Section("Total: " + totalPrice) {
 				Button("Confirm Order") {
-					
+					shouldShowOrderConfirmation.toggle()
 				}
 			}
 		}
 		.navigationBarTitle("Payment")
 		.navigationBarTitleDisplayMode(.inline)
+		.alert("Order Confirmation", isPresented: $shouldShowOrderConfirmation) {
+			Button("Ok") {
+				shouldShowOrderConfirmation.toggle()
+			}
+		} message: {
+			Text("Your order total: " + totalPrice)
+		}
+
 	}
 }
 
