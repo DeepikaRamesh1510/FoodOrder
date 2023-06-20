@@ -16,39 +16,49 @@ struct OrderDetail: View {
 	var body: some View {
 		NavigationView {
 			List {
-							Section {
-				ForEach(order.items.keys.sorted(by: >), id: \.self) { item in
+				Section {
+					ForEach(order.items.keys.sorted(by: >), id: \.self) { item in
+						HStack {
+							Image(item.thumbnailImage)
+								.clipShape(Circle())
+								.overlay(Circle().stroke(.gray, lineWidth: 2))
+							Text(item.name)
+							Spacer()
+							Text("$\((order.items[item] ?? 0) * item.price)")
+						}
+					}.onDelete(perform: self.deleteItems)
+				}
+				
+				Section {
 					HStack {
-						Image(item.thumbnailImage)
-							.clipShape(Circle())
-							.overlay(Circle().stroke(.gray, lineWidth: 2))
-						Text(item.name)
+						Text("Total: ")
+							.font(.headline)
 						Spacer()
-						Text("$\((order.items[item] ?? 0) * item.price)")
+						Text("$\(order.total)")
 					}
 				}
-							}
-				
-							Section {
-				HStack {
-					Text("Total: ")
-						.font(.headline)
-					Spacer()
-					Text("$\(order.total)")
-				}
-							}
 				
 				NavigationLink("Place Order", destination: PaymentView())
 					.padding(10)
-							.background(.blue)
+					.background(.blue)
 					.foregroundColor(.white)
 					.cornerRadius(5)
+					.disabled(order.items.isEmpty)
 				
 			}
 			.navigationBarTitle(Text("Order"))
+			.toolbar {
+				EditButton()
+			}
 			.navigationBarTitleDisplayMode(.inline)
 		}
 		
+	}
+	
+	func deleteItems(atOffSet offSet: IndexSet) {
+		guard let index = offSet.first else { return }
+		let value = order.items.keys.sorted(by: >)[index]
+		order.items[value] = nil
 	}
 }
 
